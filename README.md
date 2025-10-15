@@ -142,6 +142,86 @@ make
    cmake --build . --target run
    ```
 
+## Git 命令 / Git Commands
+
+### 基本 Git 操作 / Basic Git Operations
+```bash
+# 初始化仓库 / Initialize repository
+git init
+
+# 添加所有文件 / Add all files
+git add .
+
+# 提交更改 / Commit changes
+git commit -m "Your commit message"
+
+# 查看状态 / Check status
+git status
+
+# 查看提交历史 / View commit history
+git log --oneline
+```
+
+### 推送到 GitHub / Push to GitHub
+```bash
+# 添加远程仓库 / Add remote repository
+git remote add origin https://github.com/username/repository.git
+
+# 推送到主分支 / Push to main branch
+git push origin main
+
+# 强制推送 / Force push (if needed)
+git push -f origin main
+```
+
+### 处理大文件 / Handling Large Files
+```bash
+# 配置 Git 处理大文件 / Configure Git for large files
+git config http.postBuffer 524288000
+git config pack.windowMemory 256m
+git config pack.packSizeLimit 2g
+
+# 强制添加被忽略的大文件 / Force add ignored large files
+git add -f *.exe
+
+# 提交大文件 / Commit large files
+git commit -m "Add large installer files"
+
+# 推送大文件 / Push large files
+git push origin main
+```
+
+### GitHub CLI 操作 / GitHub CLI Operations
+```bash
+# 安装 GitHub CLI / Install GitHub CLI
+# macOS: brew install gh
+# Linux: sudo apt install gh
+
+# 登录 GitHub / Login to GitHub
+gh auth login --web
+
+# 检查认证状态 / Check auth status
+gh auth status
+
+# 创建仓库 / Create repository
+gh repo create repository-name --public
+
+# 克隆仓库 / Clone repository
+gh repo clone username/repository-name
+```
+
+### 常用 Git 别名 / Common Git Aliases
+```bash
+# 设置有用的别名 / Set useful aliases
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.unstage 'reset HEAD --'
+git config --global alias.last 'log -1 HEAD'
+git config --global alias.visual '!gitk'
+```
+
 ## 贡献 / Contributing
 
 欢迎提交 Issue 和 Pull Request！/ Welcome to submit issues and pull requests!
